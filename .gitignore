@@ -1,0 +1,8 @@
+/.vscode
+/envJRobot
+/seleniumapp/util/_pycahe_
+*.pyc
+excel_done
+venv
+.idea
+*.log

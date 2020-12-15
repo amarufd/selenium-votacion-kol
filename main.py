@@ -6,6 +6,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from browserNavigator import BrowserNavigator
 import threading
+import platform
 
 def main():
 
@@ -15,7 +16,15 @@ def main():
     options = Options()
     options.headless = True
 
-    browser = webdriver.Firefox(options=options)
+    if platform.system() == 'Linux':
+        print('Corriendo en Linux')
+        driver = webdriver.Firefox(options=options)
+    else:
+        print('Corriendo en Windows')
+        driver = webdriver.Firefox(
+            executable_path='.\drivers\geckodriver.exe',
+            options=options
+        )
 
     page = BrowserNavigator(browser)
 
@@ -31,13 +40,14 @@ if __name__ == '__main__':
     while True:
         print("Voto Nro° {}".format(str(i)))
         i += 1
-        hiloDomi = threading.Thread(target=main)
-        hiloDomi.daemon = True  # die with the program
-        hiloDomi.start()
+        main()
+        #hiloDomi = threading.Thread(target=main)
+        #hiloDomi.daemon = True  # die with the program
+        #hiloDomi.start()
         #print("Voto Nro° {}".format(str(i)))
         #i += 1
         #hiloDomi = threading.Thread(target=main)
         #hiloDomi.daemon = True  # die with the program
         #hiloDomi.start()
-        value = randint(0, 10)
-        time.sleep(value)
+        #value = randint(3, 5)
+        #time.sleep(value)

@@ -18,10 +18,10 @@ def main():
 
     if platform.system() == 'Linux' or platform.system() == 'Darwin':
         print('Corriendo en Linux')
-        driver = webdriver.Firefox(options=options)
+        browser = webdriver.Firefox(options=options)
     else:
         print('Corriendo en Windows')
-        driver = webdriver.Firefox(
+        browser = webdriver.Firefox(
             executable_path='.\drivers\geckodriver.exe',
             options=options
         )

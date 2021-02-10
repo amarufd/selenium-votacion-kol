@@ -16,7 +16,7 @@ def main():
     options = Options()
     options.headless = True
 
-    if platform.system() == 'Linux':
+    if platform.system() == 'Linux' or platform.system() == 'Darwin':
         print('Corriendo en Linux')
         driver = webdriver.Firefox(options=options)
     else:

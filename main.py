@@ -14,7 +14,7 @@ def main():
     browser = None
 
     options = Options()
-    options.headless = True
+    #options.headless = True
 
     if platform.system() == 'Linux' or platform.system() == 'Darwin':
         print('Corriendo en Linux')
@@ -32,15 +32,16 @@ def main():
     page.votar()
 
     print("Closing browser...")
-    browser.close()
+    #browser.close()
 
 
 if __name__ == '__main__':
     i = 0
-    while True:
+    main()
+    '''while True:
         print("Voto Nro° {}".format(str(i)))
         i += 1
-        main()
+        main()'''
         #hiloDomi = threading.Thread(target=main)
         #hiloDomi.daemon = True  # die with the program
         #hiloDomi.start()
